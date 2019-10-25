@@ -1,0 +1,12 @@
+---
+  # This playbook sucks 
+- name: Installation du serveur
+  hosts: web
+  remote_user: arnaud
+  become: true
+  become_method: sudo
+  become_user: root
+  tasks:
+    - name: installation de 
+      apt: name={{PACKAGE}}
+

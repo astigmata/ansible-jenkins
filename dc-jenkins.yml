@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  jenkins-master:
+    image: "jenkins/jenkins:lts"
+    container_name: "jenkins-master"
+    restart: "unless-stopped"
+    ports:
+      - "8082:8080"
+      - "50000:50000"
+    volumes:
+      - "jenkins:/var/jenkins_home"
+
+volumes:
+  jenkins:
+
+
