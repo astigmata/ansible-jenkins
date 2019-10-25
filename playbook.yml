@@ -9,4 +9,5 @@
   tasks:
     - name: installation de 
       apt: name={{PACKAGE}}
+      #apt: name=icinga2
 
