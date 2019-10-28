@@ -6,12 +6,11 @@
   become: true
   become_method: sudo
   become_user: root
-  tasks:
-    
-- name: Setup rudder client repo
-  apt_repository:
-    repo "deb https://repository.rudder.io/apt/5.0/ xenial main"
-    update_cache yes
-    
-- name: installation de rudder agent
-  apt: name=rudder-agent
+  tasks:    
+    - name: Setup rudder client repo
+      apt_repository:
+        repo "deb https://repository.rudder.io/apt/5.0/ xenial main"
+        update_cache yes
+        
+    - name: installation de rudder agent
+      apt: name=rudder-agent
