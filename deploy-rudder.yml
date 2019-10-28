@@ -1,0 +1,16 @@
+---
+  # This playbook sucks 
+- name: Installation du serveur
+  hosts: web
+  remote_user: arnaud
+  become: true
+  become_method: sudo
+  become_user: root
+  tasks:
+    
+    - apt_repository:
+      repo: deb https://repository.rudder.io/apt/5.0/ xenial main
+      state: present
+    
+    - name: installation de rudder agent
+      apt: name=rudder-agent
