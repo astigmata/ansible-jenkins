@@ -8,9 +8,10 @@
   become_user: root
   tasks:
     
-    - apt_repository:
-      repo: deb https://repository.rudder.io/apt/5.0/ xenial main
-      state: present
+- name: Setup rudder client repo
+  apt_repository:
+    repo "deb https://repository.rudder.io/apt/5.0/ xenial main"
+    update_cache yes
     
-    - name: installation de rudder agent
-      apt: name=rudder-agent
+- name: installation de rudder agent
+  apt: name=rudder-agent
