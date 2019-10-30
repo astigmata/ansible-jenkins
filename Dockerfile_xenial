@@ -1,0 +1,16 @@
+FROM ubuntu:16.04
+
+MAINTAINER arnaud <arnaud.sayer@penbase.com>
+
+RUN apt-get update \
+&& apt-get install -y wget curl ansible lsb-release openssh-server sudo nano \
+&& mkdir /var/run/sshd \
+&& apt-get update \
+&& wget --quiet -O- "https://repository.rudder.io/apt/rudder_apt_key.pub" | apt-key add - \
+&& echo "deb http://repository.rudder.io/apt/5.0/ $(lsb_release -cs) main" > /etc/apt/sources.list.d/rudder.list \
+&& apt-get update -y \
+&& apt-get install -y rudder-agent
+
+EXPOSE 22
+
+COPY ./createsshuser.sh .
