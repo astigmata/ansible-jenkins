@@ -2,7 +2,7 @@
   # This playbook sucks 
 - name: Installation du serveur
   hosts: web
-  remote_user: robotadm
+  remote_user: arnaud
   become: true
   become_method: sudo
   become_user: root
