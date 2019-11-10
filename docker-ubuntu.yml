@@ -8,12 +8,12 @@
     default_container_command: sleep 1d
 
   tasks:
-    - name: Install aptitude using apt
-      apt:
-        name: aptitude
-        state: latest
-        update_cache: yes
-        force_apt_get: yes
+    #- name: Install aptitude using apt
+    #  apt:
+    #    name: aptitude
+    #    state: latest
+    #    update_cache: yes
+    #    force_apt_get: yes
     
     - name: Container present
       docker_container:
