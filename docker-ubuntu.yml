@@ -1,0 +1,34 @@
+---
+- hosts: all
+  become: true
+  vars:
+    create_containers: 4
+    default_container_name: docker
+    default_container_image: ubuntu
+    default_container_command: sleep 1d
+
+  tasks:
+    - name: Install aptitude using apt
+      apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+    
+    - name: Container present
+      docker_container:
+        name: mycontainer
+        state: present
+        image: ubuntu:14.04
+        command: sleep infinity
+    
+    - name: Container present
+      docker_container:
+        name: xenial
+        state: present
+        image: ubuntu:16.04
+        command: sleep infinity
+
+    - name: Container present
+      docker_container:
+        name: bionic
+        state: present
+        image: ubuntu:18.04
+        command: sleep infinity
+
